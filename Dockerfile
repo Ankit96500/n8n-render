@@ -1,4 +1,5 @@
-FROM docker.io/n8nio/n8n:latest
+# Use the lightweight Alpine tag to drastically cut down RAM usage on Render's Free tier
+FROM docker.io/n8nio/n8n:latest-alpine
 
-# Tell n8n to listen directly to the web port Render assigns dynamically
-#CMD ["n8n", "start"]
+# Force the container to launch the primary n8n process correctly
+CMD ["n8n", "start"]
